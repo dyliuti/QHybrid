@@ -29,6 +29,7 @@ signals:
 public slots:
     void setLastName(QString lastName);
     void setFirstName(QString firstName);
+    void setNameTest(QString name);
 };
 
 

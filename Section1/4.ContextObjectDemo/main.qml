@@ -1,5 +1,6 @@
 import QtQuick 2.11
 import QtQuick.Window 2.11
+import QtQuick.Controls 2.2
 
 Window {
     visible: true
@@ -36,6 +37,15 @@ Window {
             anchors.centerIn: parent
             text: firstName //mFirstName    // John
             font.pointSize: 20
+        }
+    }
+
+    Button{
+        anchors.top: mRect2.bottom
+        anchors.topMargin: 5
+
+        onClicked: {
+            setNameTest("颜")
         }
     }
 }

@@ -50,3 +50,9 @@ void PropertyWrapper::setFirstName(QString firstName)
     emit firstNameChanged(m_firstName);
 }
 
+void PropertyWrapper::setNameTest(QString name)
+{
+    m_firstName = name;
+    emit firstNameChanged(m_firstName);
+}
+
