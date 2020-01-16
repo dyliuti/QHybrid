@@ -13,6 +13,10 @@ Window {
     Counter {
         id: mCounter
     }
+    // 不能实例化
+    //Counting{
+
+    //}
 
     Column{
         anchors.centerIn: parent
