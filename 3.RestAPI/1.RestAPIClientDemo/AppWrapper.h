@@ -2,16 +2,22 @@
 #define APPWRAPPER_H
 
 #include <QObject>
-#include <QNetworkAccessManager>
-#include <QNetworkReply>
-#include <QNetworkRequest>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
+#include <QNetworkRequest>
+#include <QNetworkProxy>
+#include <QNetworkReply>
+#include <QNetworkAccessManager>
+#include <QDebug>
+#include <QJsonDocument>
+#include <QJsonObject>
+#include <QJsonArray>
 
 class AppWrapper : public QObject
 {
     Q_OBJECT
-private:
+
+public:
     QNetworkAccessManager* mNetManger;
     QNetworkReply* mNetReply;
     QByteArray* mDataBuffer;
@@ -24,16 +30,14 @@ public:
     explicit AppWrapper(QObject *parent = nullptr);
 
     Q_INVOKABLE void fetchPost(int number);
-
     Q_INVOKABLE void removeLast();
 
     QStringList jokes() const;
-
     bool initialize();
 signals:
 
 public slots:
-private slots:
+
     void dataReadyRead();
     void dataReadFinished();
 };

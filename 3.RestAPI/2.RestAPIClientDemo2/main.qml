@@ -1,67 +1,67 @@
 import QtQuick 2.11
 import QtQuick.Window 2.11
-import QtQuick.Controls 2.2
-import QtQuick.Layouts 1.3
-
+import QtQuick.Controls 2.3
+import QtQuick.Layouts 1.11
 
 Window {
     visible: true
     width: 640
     height: 480
-    title: qsTr("RestAPIClient")
+    title: qsTr("Rest Client V2")
 
     ColumnLayout{
         anchors.fill: parent
         spacing: 0
 
         ListView{
-            id: mListView
-            model: myModel // 30
+            id : mListView
+            model : myModel
             delegate: Rectangle{
-                width: parent.width
-                height: textId.implicitHeight + 30
+
+                width : parent.width
+                height: textId.implicitHeight+30
                 color: "beige"
                 border.color: "yellowgreen"
                 radius: 5
 
-                Text{
-                    width: parent.width
+                Text {
+                    width : parent.width
                     height: parent.height
-                    id: textId
+                    id : textId
                     anchors.centerIn: parent
-                    text: modelData
+                    text : modelData
                     font.pointSize: 13
                     wrapMode: Text.WordWrap
                     verticalAlignment: Text.AlignVCenter
                     horizontalAlignment: Text.AlignHCenter
                 }
             }
-
             Layout.fillHeight: true
             Layout.fillWidth: true
         }
 
         SpinBox{
-            id: spinBoxId
+            id : spinBoxId
             Layout.fillWidth: true
             value: 10
         }
 
-        Button{
-            id: mButton1
-            text: "Fetch"
+        Button {
+            id : mButton1
+            text : "Fetch"
             Layout.fillWidth: true
             onClicked: {
-                Wrapper.fetchPost(spinBoxId.value)
+                /* 改动点 */
+                myDatasource.fetchJokes(spinBoxId.value)
             }
         }
 
-        Button{
-            id: mButton2
-            text: "RemoveLast"
+        Button {
+            id : mButton2
+            text : "RemoveLast"
             Layout.fillWidth: true
             onClicked: {
-                Wrapper.removeLast()
+                myDatasource.removeLastJoke()
             }
         }
     }

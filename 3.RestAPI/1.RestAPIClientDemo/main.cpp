@@ -1,5 +1,5 @@
 #include <QGuiApplication>
-#include <QQmlContext>
+#include <QQmlApplicationEngine>
 #include "AppWrapper.h"
 
 int main(int argc, char *argv[])

@@ -14,6 +14,9 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
+    datasource.cpp \
+    joke.cpp \
+    jokemodel.cpp \
     AppWrapper.cpp
 
 RESOURCES += qml.qrc
@@ -30,4 +33,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
+    datasource.h \
+    joke.h \
+    jokemodel.h \
     AppWrapper.h
