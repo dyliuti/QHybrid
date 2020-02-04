@@ -11,7 +11,7 @@ int main(int argc, char *argv[])
 
     QQmlApplicationEngine engine;
 
-    // expose the class
+    // 暴露这个类给QML
     CppWorker mWorker;
     engine.rootContext()->setContextProperty("BWorker", &mWorker);  // 前面时qml用的类，可任意写。后者时C++的实例
 

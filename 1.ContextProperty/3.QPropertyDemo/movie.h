@@ -12,15 +12,13 @@ class Movie : public QObject
 
 private:
     QString m_mainCharacter;
-
     QString m_title;
 
 public:
     explicit Movie(QObject *parent = nullptr);
 
-QString mainCharacter() const;
-
-QString title() const;
+    QString mainCharacter() const;
+    QString title() const;
 
 signals:
     void mainCharacterChanged(QString mainCharacter);
