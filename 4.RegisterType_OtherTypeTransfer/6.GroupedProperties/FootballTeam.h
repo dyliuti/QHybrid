@@ -12,7 +12,8 @@ class FootballTeam : public QObject
     Q_PROPERTY(QString title READ title WRITE setTitle NOTIFY titleChanged)
     Q_PROPERTY(QString coath READ coath WRITE setCoath NOTIFY coathChanged)
     Q_PROPERTY(Player* captain READ captain WRITE setCaptain NOTIFY captainChanged)
-    Q_PROPERTY(QQmlListProperty<Player> players READ players WRITE setPlayers NOTIFY playersChanged)    // 列表属性应该没有set,即使有也置空
+    // 列表属性应该没有set,即使有也置空
+    Q_PROPERTY(QQmlListProperty<Player> players READ players WRITE setPlayers NOTIFY playersChanged)
 
 private:
     QString m_title;

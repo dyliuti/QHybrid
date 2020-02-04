@@ -27,8 +27,8 @@ public:
     QString position() const;
 
     Q_INVOKABLE virtual void play() = 0; // 纯虚函数类，不能直接创建实例
-    //PlayerDetails* details(); // const; 可修改
-    PlayDetails* details(); // const;
+
+    PlayDetails* details(); // 去掉const; 因为可修改
 
 signals:
     void nameChanged(QString name);

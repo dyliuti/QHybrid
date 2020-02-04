@@ -24,9 +24,13 @@ QML中使用Cpp属性、成员函数、信号的方法。Cpp中调用QML中JavaS
 
 2.使用Q_OBJECT宏
 
-**二：setContextProperty与setContextObject：**
+**二：setContextProperty与setContextObject介绍及注意点：**
 
 QML是需要QML引擎（即QQmlEngine）来解释执行的，所以QML中的全局变量本质是QML执行上下文QQmlContext的属性。定义QML全局变量也就是把我们的目标设置为QML执行上下文的属性。  setContextObject暴露类中的所有属性给QML，setContextProperty暴露对象作为QML执行上下文的属性。
+
+setContextProperty有两个重载函数，一个用于继承自QObject 的类，另一个更松点，能转换为QVariatn的类即可，即需要在元对象系统中注册过该类型（如QList属性用这种注册方法）。setContextObject只有前者。
+
+此外，由于QML中求值的所有表达式都是在特定上下文中求值的，因此如果上下文被修改，那么该上下文中的所有绑定都将被重新求值。因此，应该在应用程序初始化之外小心使用上下文属性，因为这可能会导致应用程序性能下降。  
 
 **三：QML与Cpp属性相互绑定-QML中冒号与等号左边是属性时隐含的操作：**
 
