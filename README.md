@@ -40,11 +40,11 @@ QML是需要QML引擎（即QQmlEngine）来解释执行的，所以QML中的全�
 
 ## 2.MetaTypeTransfer
 
-
+无
 
 ## 3.RestAPI
 
-
+无
 
 ## 4.RegisterType_OtherTypeTransfer
 
