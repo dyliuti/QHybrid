@@ -13,7 +13,7 @@ Window {
     ListView{
         id : mListView
         anchors.fill: parent
-        model : personModel
+        model : personModel // mModelId
         delegate: Rectangle {
             height: 90
             radius: 10
@@ -32,7 +32,7 @@ Window {
                     // text : modelData.names
                     // 其实加上前缀1.便于阅读，知道从哪里来；2.属性名重复时可分辨
                     // text :  model.names
-                    text :  model.modelData.names
+                    text :  mModelId.modelData.names
                     Layout.fillWidth: true
                 }
                 SpinBox{
@@ -52,19 +52,19 @@ Window {
         }
     }
 
-    ListModel{
-        id : mModelId
-        ListElement {
-            names : "Daniel Sten"; favoriteColor : "blue"; age : 10
-        }
-        ListElement {
-            names : "Stevie Wongers"; favoriteColor : "cyan"; age : 23
-        }
-        ListElement {
-            names : "Nicholai Ven"; favoriteColor : "red"; age : 33
-        }
-        ListElement {
-            names : "William Glen"; favoriteColor : "yellowgreen"; age : 45
-        }
-    }
+//    ListModel{
+//        id : mModelId
+//        ListElement {
+//            names : "Daniel Sten"; favoriteColor : "blue"; age : 10
+//        }
+//        ListElement {
+//            names : "Stevie Wongers"; favoriteColor : "cyan"; age : 23
+//        }
+//        ListElement {
+//            names : "Nicholai Ven"; favoriteColor : "red"; age : 33
+//        }
+//        ListElement {
+//            names : "William Glen"; favoriteColor : "yellowgreen"; age : 45
+//        }
+//    }
 }

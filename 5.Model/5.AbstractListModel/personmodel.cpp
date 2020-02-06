@@ -21,7 +21,7 @@ int PersonModel::rowCount(const QModelIndex &parent) const
 /* 展示数据，框架调用的函数，需实现 */
 QVariant PersonModel::data(const QModelIndex &index, int role) const
 {
-    // same as !index.isValid()
+    // 同 !index.isValid()
     if (index.row() < 0 || index.row() >= mPersons.count())
         return QVariant();
     //The index is valid
@@ -35,9 +35,9 @@ QVariant PersonModel::data(const QModelIndex &index, int role) const
      return QVariant();
 }
 
-/* 修改数据，类同在QML中改变了属性，触发set属性名函数，role起中介、路由作用，不同role不同处理。 */
-// The dataChanged() signal should be emitted if the data was successfully set. 触发dataChanged实现QML中更新数据，双向绑定
-// Note: This function can be invoked via the meta-object system and from QML. See Q_INVOKABLE.
+/*  修改数据，类同在QML中改变了属性，触发set属性名函数，role起中介、路由作用，不同role不同处理。
+    若果数据修改了，dataChanged()必须发送，这样QML中的属性值才会更新 */
+// This function can be invoked via the meta-object system and from QML. See Q_INVOKABLE.
 bool PersonModel::setData(const QModelIndex &index, const QVariant &value, int role)
 {
     Person * person = mPersons[index.row()];

@@ -18,7 +18,7 @@ Qt与Cpp交互测试与总结。
 
 ## 1.ContextProperty
 
-****一：Cpp类可暴露给QML的要求：**
+**一：Cpp类可暴露给QML的要求：**
 
 要将Cpp中的一个类导入到qml中的前提与使用信号与槽的前提条件一样，都是为了引入元对象系统，这样方法和属性才可以通过字符串的形式来调用：
 
@@ -36,7 +36,7 @@ setContextProperty有两个重载函数，一个用于继承自QObject 的类，
 
 **三：QML与Cpp属性相互绑定-QML中冒号与等号左边是属性时隐含的操作：**
 
-1.“Qml的属性：Cpp中的属性”。执行该条语句后，等同于QML中生成了一个槽，关联Cpp中属性changed信号，一旦Cpp发送“属性名changed”信号，QML的属性得到更新。
+1.“QML的属性：Cpp中的属性”。执行该条语句后，等同于QML中生成了一个槽，关联Cpp中属性changed信号，一旦Cpp发送“属性名changed”信号，QML的属性得到更新。
 
 2.在QML中使用“Cpp的属性=QML中的属性”。执行该条语句后，会通过元对象系统调用Cpp中的“set属性名”函数。
 
@@ -74,7 +74,27 @@ setContextProperty有两个重载函数，一个用于继承自QObject 的类，
 
 ## 5.Model
 
+**一.关于modelData：**
 
+没有指定角色的模型，将通过modelData角色提供数据。另外，只有一个角色的模型时也提供了modelData角色来供访问。如模型是QStringList，有个只读的modelData属性，可通过它访问model中的字符。
+
+加上前缀限定1.便于阅读，知道从哪里来；2.模型属性名与委托属性名冲突时时，使用限定的模型名称访问角色。
+
+如将Cpp的model暴露给QML。属性引用方式多样，如Cpp的names属性可以用下面任意一个：
+
+text :  names
+
+text :  modelData.names
+
+text :  model.names
+
+text :  model.modelData.names
+
+model前缀为ListView的属性。若names是QML中ListElement中的属性，则不能用modelData前缀相关的进行访问。
+
+**二.model/view效率最高的方式：**
+
+使用继承于QAbstractItemModel的model，这样可以做到改动最小，就更新view。
 
 ## 6.CustomVisualType
 
