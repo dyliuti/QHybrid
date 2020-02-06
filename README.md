@@ -98,6 +98,10 @@ model前缀为ListView的属性。若names是QML中ListElement中的属性，则
 
 ## 6.CustomVisualType
 
+**一：QML中绘制可视化图像的几种方式：**
 
+1.继承于QQuickItem，然后重新实现了虚函数paint()。
+
+2.实现QML中Canvas的onPaint()。
 
 ## 7.DigQMLFromCpp
