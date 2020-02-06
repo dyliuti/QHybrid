@@ -10,7 +10,7 @@
 
 **简介：**
 
-Qt与Cpp交互测试与总结。
+Qt Quick与Cpp交互测试与总结。
 
 <br>
 
@@ -105,3 +105,15 @@ model前缀为ListView的属性。若names是QML中ListElement中的属性，则
 2.实现QML中Canvas的onPaint()。
 
 ## 7.DigQMLFromCpp
+
+**一.Cpp中修改QML属性的两种方式及其区别：**
+
+1.使用QQuickItem的setProperty，不会断开绑定。
+
+2.使用QQmlProperty::write，会断开绑定。
+
+**二.Cpp获取QML根对象的方式：**
+
+1.使用QQmlApplicationEngine加载QML文档，再使用rootObjects()返回根对象们（返回前可用rootObjects().isEmpty()先判断下是否为空）。
+
+2.使用QQmlComponent将qml文件作为一个组件，再使用create()得到该组件对象，即根对象。

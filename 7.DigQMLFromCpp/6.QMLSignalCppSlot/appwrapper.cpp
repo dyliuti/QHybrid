@@ -24,6 +24,5 @@ void AppWrapper::respondToClick(QString msg, const QVariant &object)
     qDebug() << "The message is : " << msg;
 
     QObject * mObject = object.value<QObject*>();
-
     qDebug() << "The property is : " << mObject->property("mProp").toString();
 }
