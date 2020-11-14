@@ -1,13 +1,3 @@
-**“纸上得来终觉浅，绝知此事要躬行。”  —— 陆游**
-
-**"Practice，practice，practice and summary make perfect" —— dyliuti**
-
-------
-
-
-
-<br>
-
 **简介：**
 
 Qt Quick与Cpp交互测试与总结。
